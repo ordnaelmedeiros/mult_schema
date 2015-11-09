@@ -3,6 +3,7 @@
 	<name>MultSchema</name>
 	<comment></comment>
 	<projects>
+		<project>MultSchemaEntity</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

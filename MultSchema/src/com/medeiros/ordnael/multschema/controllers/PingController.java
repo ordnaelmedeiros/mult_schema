@@ -11,7 +11,7 @@ public class PingController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String get() {
-		return "teste";
+		return "ping";
 	}
 	
 }

@@ -19,18 +19,7 @@ public class TestPingController extends TestCase {
 		Response response = target.request().get();
         String value = response.readEntity(String.class);
         
-        assertEquals("teste != "+value, "teste", value);
-        
-	}
-	
-	@Test
-	public void testGet2() {
-		
-		WebTarget target = TestApp.getWebTarget("ping");
-		Response response = target.request().get();
-        String value = response.readEntity(String.class);
-        
-        assertEquals("teste != "+value, "teste", value);
+        assertEquals("ping", value);
         
 	}
 	

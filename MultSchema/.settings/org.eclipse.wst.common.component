@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="MultSchema">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <dependent-module archiveName="MultSchemaEntity.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MultSchemaEntity/MultSchemaEntity">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="MultSchema"/>
         <property name="java-output-path" value="/MultSchema/build/classes"/>
     </wb-module>
