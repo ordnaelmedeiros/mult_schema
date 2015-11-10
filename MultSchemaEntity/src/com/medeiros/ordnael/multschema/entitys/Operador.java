@@ -6,8 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(schema="public")
 @SequenceGenerator(name = "SEQ_OPERADOR", sequenceName = "SEQ_OPERADOR", initialValue = 1)
 public class Operador {
 
