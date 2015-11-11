@@ -32,6 +32,7 @@ public abstract class AResources<Entity> {
 			this.getEm().getTransaction().commit();
 		} catch (Exception e) {
 			this.getEm().getTransaction().rollback();
+			throw e;
 		} finally {
 			this.close();
 		}
@@ -45,6 +46,7 @@ public abstract class AResources<Entity> {
 			this.getEm().getTransaction().commit();
 		} catch (Exception e) {
 			this.getEm().getTransaction().rollback();
+			throw e;
 		} finally {
 			this.close();
 		}
@@ -59,6 +61,7 @@ public abstract class AResources<Entity> {
 			this.getEm().getTransaction().commit();
 		} catch (Exception e) {
 			this.getEm().getTransaction().rollback();
+			throw e;
 		} finally {
 			this.close();
 		}

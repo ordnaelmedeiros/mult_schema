@@ -9,5 +9,10 @@ public class OperadorResources extends AResources<Operador> {
 	public Class<Operador> newClass() {
 		return Operador.class;
 	}
+	
+	@Override
+	public Boolean delete(Long id) throws Exception {
+		return false;
+	}
 
 }

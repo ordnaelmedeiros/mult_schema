@@ -7,6 +7,8 @@
 	<persistence-unit name="principal">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.medeiros.ordnael.multschema.entitys.Operador</class>
+		<class>com.medeiros.ordnael.multschema.entitys.Programa</class>
+		<class>com.medeiros.ordnael.multschema.entitys.OperadorPrograma</class>
 	</persistence-unit>
 
 </persistence>
