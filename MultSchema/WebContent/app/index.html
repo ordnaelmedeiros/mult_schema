@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="app">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-language" content="pt-br" />
+	<meta name="viewport" content="initial-scale=1" />
+	
+	<title>Mult Schema</title>
+	
+	<link href="app/css/ids.css" rel="stylesheet" type="text/css"/>
+	<link href="app/css/roboto.css" rel="stylesheet" type="text/css"/>
+	<link href="app/css/angular-csp.css" rel="stylesheet" type="text/css"/>
+	<link href="app/css/angular-material.min.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body layout="column" ng-controller="AppCtrl">
+ 		
+	<md-toolbar layout="row" class="default-primary-color md-toolbar-tools md-whiteframe-z2" style="color:white">
+		
+		<md-button ng-click="toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+			<md-icon aria-label="Menu" md-svg-icon="app/img/icons/ic_view_headline_white_24px.svg"></md-icon>
+		</md-button>
+		<img src="app/img/icons/idslogo.png" width="50px">
+		<div id="divNomeSitema" class="espaco"><b>Saúde</b></div>
+		
+		<md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_favorite_border_white_48px.svg"></md-icon>
+        </md-button>
+        
+        <md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_apps_white_24px.svg"></md-icon>
+        </md-button>
+
+        <md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_phone_in_talk_white_48px.svg"></md-icon>
+        </md-button>
+        
+        <md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_shopping_cart_white_24px.svg"></md-icon>
+        </md-button>
+		
+        <md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_directions_bus_white_24px.svg"></md-icon>
+        </md-button>
+		
+		<span flex></span>
+		<div class="espaco">Leandro Medeiros</div>
+		<md-button class="dark-primary-color md-fab md-mini">
+            <md-icon md-svg-icon="app/img/icons/ic_person_white_48px.svg"></md-icon>
+        </md-button>
+		
+	</md-toolbar>
+	
+	<md_content class="dark-primary-color" style="height:25px; color:white" layout="row" layout-align="center center">
+		<img src="app/img/icons/ic_home_white_24px.svg">
+		<div class="espaco"><font size="2" >99999 - Unidade de Saúde Selecionada</font></div>
+		<span flex></span>
+		<div class="espaco"><font size="2" >99999 - Local de Armazenamento Selecionado</font></div>
+		<img class="espaco" src="app/img/icons/ic_layers_white_24px.svg">
+	</md_content>
+	
+	<div layout="row" flex>
+	
+		<md-sidenav id="menuEsquerda" layout="column" class="menuLeft-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+			<md-list>
+				<md-divider hide-gt-sm></md-divider>
+				<md-item>
+					<md-list-item>
+						<img src="app/img/icons/ic_phone_in_talk_black_48px.svg" >
+						<h2 class="espaco">Ouvidoria</h2>
+					</md-list-item>
+				</md-item>
+				<md-divider></md-divider>
+				<md-item>
+					
+					<md-list-item>
+						<md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
+      						HOME
+      					</md-button>
+					</md-list-item>
+					
+					<md-list-item>
+						<md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
+      						HOME 2
+      					</md-button>
+					</md-list-item>
+				
+				</md-item>				
+			</md-list>
+		</md-sidenav>
+		
+		<md-content id="viewPrincial" layout="column" flex class="md-padding">
+			<div ng-view></div>
+		</md-content>	
+	</div>
+	
+	<div>
+		<div  id="homeFooter" class="" layout="row" layout-align="center center">
+			<font size="2" >v1.08.0-3</font>
+			<span flex></span>
+			<img src="app/img/icons/ic_email_white_24px.svg" class="espaco">
+			<img src="app/img/icons/ic_chat_white_24px.svg" class="espaco">
+		</div>
+	</div>
+</body>
+<!-- libs -->
+<script type="text/javascript" src="app/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="app/lib/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="app/lib/angular/angular-animate.min.js"></script>
+<script type="text/javascript" src="app/lib/angular/angular-material.min.js"></script>
+<script type="text/javascript" src="app/lib/angular/angular-messages.min.js"></script>
+<script type="text/javascript" src="app/lib/angular/angular-aria.min.js"></script>
+<!-- aplicação -->
+<script type="text/javascript" src="app/js/app.module.js"></script>
+<script type="text/javascript" src="app/js/app.routes.js"></script>
+<script type="text/javascript" src="app/js/app.constant.js"></script>
+</html>

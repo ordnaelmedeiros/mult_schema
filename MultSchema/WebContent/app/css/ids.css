@@ -1,0 +1,146 @@
+
+.dark-primary-color    { background: #A00000 !important; }
+.default-primary-color { background: #B71C1C !important; }
+.light-primary-color   { background: #FFCDD2 !important; }
+.text-primary-color    { color: #FFFFFF !important; }
+.accent-color          { background: #FF4081 !important; }
+.primary-text-color    { color: #212121 !important; }
+.secondary-text-color  { color: #727272 !important; }
+.divider-color         { border-color: #B6B6B6 !important; }
+
+/*
+.dark-primary-color    { background: #1976D2 !important; }
+.default-primary-color { background: #2196F3 !important; }
+.light-primary-color   { background: #BBDEFB !important; }
+.text-primary-color    { color: #FFFFFF !important; }
+.accent-color          { background: #03A9F4 !important; }
+.primary-text-color    { color: #212121 !important; }
+.secondary-text-color  { color: #727272 !important; }
+.divider-color         { border-color: #B6B6B6 !important; }
+*/
+
+.md-color {
+	background-color: #B71C1C;
+	background: #B71C1C;
+	color: #fff;
+}
+
+.md-color2 {
+	background-color: #D32F2F;
+}
+
+#viewPrincial {
+  background-color: #eee;
+}
+
+#homeFooter {
+	padding: 5px;
+	background-color: #212121;
+	color: #fff;
+}
+
+.espaco {
+	padding-left: 5px;
+}
+
+#telaHome {
+	background-color: #FFF;
+	border-radius: 0.5%;
+}
+
+
+#menuEsquerda {
+	background-color: #FAFAFA;
+}
+
+#barStatus {
+	height: 30px;
+	
+}
+
+#divNomeSitema {
+	width: 250px;
+}
+
+/*
+
+md-content.md-default-theme {
+  background-color: #eee;
+}
+
+
+.md-color2 {
+	background-color: #D32F2F;
+}
+
+#menuFooter: {
+	height: 30px;
+}
+
+
+md-toolbar .md-button.md-default-theme {
+  border-radius: 99%;
+}
+h2 {
+  font-weight: 400;
+}
+
+.md-toolbar-tools-bottom {
+  font-size: small;
+}
+.md-toolbar-tools-bottom :last-child {
+  opacity: 0.8;
+}
+
+md-toolbar:not(.md-hue-1),
+.md-fab {
+  fill: #fff;
+}
+
+md-sidenav {
+  fill: #737373;
+}
+md-sidenav ng-md-icon {
+  position: relative;
+  top: 5px;
+  bottom: 30px;
+}
+
+.user-avatar {
+  border-radius: 99%;
+}
+
+.fabToolbardemoBasicUsage md-fab-toolbar.md-left md-fab-trigger.align-with-text {
+	left: 7px;
+	bottom: 0px; 
+}
+
+#menuFooter {
+	height: 30px;
+}
+.md-color {
+	background-color: #B71C1C;
+}
+.md-color2 {
+	background-color: #D32F2F;
+}
+.md-color-salvar {
+	background-color: #1B5E20;
+}
+
+.menuLeft-sidenav {
+	width: 250px;
+	min-width: 248px;
+	max-width: 250px;
+	
+}
+.inputdemoErrors .inputErrorsApp {
+  	min-height: 48px; 
+ }
+ .menu-ids {
+ 	list-style: none;
+    padding: 0;
+ }
+ */
+ 
+ 
