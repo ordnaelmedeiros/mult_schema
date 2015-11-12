@@ -14,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class AController<Entity, Resources extends AResources<Entity>> {
 
+	abstract public Resources newResource();
+	
 	private Resources res = null;
 	public Resources getRes() {
 		if (this.res==null) {
@@ -24,8 +26,6 @@ public abstract class AController<Entity, Resources extends AResources<Entity>> 
 	public void setRes(Resources res) {
 		this.res = res;
 	}
-
-	abstract public Resources newResource();
 	
 	@GET
 	@Path("{id}")
@@ -34,12 +34,12 @@ public abstract class AController<Entity, Resources extends AResources<Entity>> 
 	}
 	
 	@POST
-	public Long post(Entity ent) throws Exception {
+	public Entity post(Entity ent) throws Exception {
 		return this.getRes().post(ent);
 	}
 	
 	@PUT
-	public Boolean put(Entity ent) throws Exception {
+	public Entity put(Entity ent) throws Exception {
 		return this.getRes().put(ent);
 	}
 	
@@ -47,6 +47,12 @@ public abstract class AController<Entity, Resources extends AResources<Entity>> 
 	@Path("{id}")
 	public Boolean delete(@PathParam("id") Long id) throws Exception {
 		return this.getRes().delete(id);
+	}
+	
+	@GET
+	@Path("pagina={pagina}/quantidade={quantidade}")
+	public FormPesquisa<Entity> get(@PathParam("pagina") Integer pagina, @PathParam("quantidade") Integer quantidade) throws Exception {
+		return this.getRes().get(pagina, quantidade);
 	}
 	
 }

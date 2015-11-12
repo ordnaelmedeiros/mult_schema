@@ -20,6 +20,16 @@ public class OperadorController extends AController<Operador, OperadorResources>
 	}
 	
 	@Override
+	public Operador get(Long id) throws Exception {
+		/*
+		for (int i=0; i<1000; i++) {
+			super.get(id);
+		}
+		*/
+		return super.get(id);
+	}
+	
+	@Override
 	public OperadorResources newResource() {
 		return new OperadorResources();
 	}

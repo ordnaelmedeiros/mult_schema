@@ -1,9 +1,17 @@
 package com.medeiros.ordnael.multschema.utils;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
-public abstract class AResources<Entity> {
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 
+public abstract class AResources<Entity> {
+	
+	public abstract Class<Entity> newClass();
+	
 	private EntityManager em;
 	public EntityManager getEm() {
 		if (this.em==null) {
@@ -14,6 +22,11 @@ public abstract class AResources<Entity> {
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
+	public Criteria createCriteria(@SuppressWarnings("rawtypes") Class classe) {
+		Session session = this.getEm().unwrap(org.hibernate.Session.class);
+		return session.createCriteria(classe);
+	}
+	
 	public void close() {
 		this.getEm().close();
 		this.setEm(null);
@@ -25,7 +38,7 @@ public abstract class AResources<Entity> {
 		return ent;
 	}
 	
-	public Long post(Entity ent) throws Exception {
+	public Entity post(Entity ent) throws Exception {
 		try {
 			this.getEm().getTransaction().begin();
 			this.getEm().persist(ent);
@@ -36,10 +49,10 @@ public abstract class AResources<Entity> {
 		} finally {
 			this.close();
 		}
-		return 1l;
+		return ent;
 	}
 	
-	public Boolean put(Entity ent) throws Exception {
+	public Entity put(Entity ent) throws Exception {
 		try {
 			this.getEm().getTransaction().begin();
 			this.getEm().merge(ent);
@@ -50,7 +63,7 @@ public abstract class AResources<Entity> {
 		} finally {
 			this.close();
 		}
-		return true;
+		return ent;
 	}
 	
 	public Boolean delete(Long id) throws Exception {
@@ -68,6 +81,47 @@ public abstract class AResources<Entity> {
 		return true;
 	}
 	
-	public abstract Class<Entity> newClass();
+
+	public FormPesquisa<Entity> get(Integer pagina, Integer quantidade) throws Exception {
+		
+		FormPesquisa<Entity> form = new FormPesquisa<>();
+		
+		try {
+			
+			if (quantidade==null || quantidade<1) {
+				quantidade = 20;
+			}
+			if (pagina==null || pagina<1) {
+				pagina = 1;
+			}
+
+			form.setPagina(pagina);
+			form.setQuantidade(quantidade);
+			
+			pagina--;
+			
+			@SuppressWarnings("unchecked")
+			List<Entity> lista = this.createCriteria(this.newClass())
+				.setFirstResult(pagina*quantidade)
+				.setMaxResults(quantidade)
+				.list();
+			
+			Long rowCount = (Long)this.createCriteria(this.newClass())
+				.setProjection(Projections.rowCount())
+				.uniqueResult();
+			
+			Long total = rowCount/quantidade;
+			if ((rowCount%quantidade)!=0) {
+				total++;
+			}
+			form.setTotal(total);
+			
+			form.setLista(lista);
+			
+		} catch (Exception e) {
+			throw e;
+		}
+		return form;
+	}
 	
 }

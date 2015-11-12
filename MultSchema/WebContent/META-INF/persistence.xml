@@ -9,6 +9,17 @@
 		<class>com.medeiros.ordnael.multschema.entitys.Operador</class>
 		<class>com.medeiros.ordnael.multschema.entitys.Programa</class>
 		<class>com.medeiros.ordnael.multschema.entitys.OperadorPrograma</class>
+		
+		<properties>
+			<property name="connection.provider_class"  value="org.hibernate.connection.C3P0ConnectionProvider"/>
+			<property name="hibernate.c3p0.acquire_increment" value="4" />
+			<property name="hibernate.c3p0.idle_test_period" value="3000" /> 
+			<property name="hibernate.c3p0.max_size" value="20" />
+			<property name="hibernate.c3p0.max_statements" value="15" />
+			<property name="hibernate.c3p0.min_size" value="5" />
+			<property name="hibernate.c3p0.timeout" value="100" /> 
+		</properties>
+		
 	</persistence-unit>
 
 </persistence>
