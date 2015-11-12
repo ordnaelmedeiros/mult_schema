@@ -42,14 +42,14 @@
 	       }
 	    ]
 	  
-		 $scope.iconFavorite = "app/img/icons/ic_favorite_border_white_48px.svg";
+		 $scope.iconFavorite = "app/assets/img/icons/ic_favorite_border_white_48px.svg";
 	  
 		 $scope.trocaCoracao = function() {
 		  
-			 if ($scope.iconFavorite=="app/img/icons/ic_favorite_white_48px.svg") {
-				 $scope.iconFavorite = "app/img/icons/ic_favorite_border_white_48px.svg";
+			 if ($scope.iconFavorite=="app/assets/img/icons/ic_favorite_white_48px.svg") {
+				 $scope.iconFavorite = "app/assets/img/icons/ic_favorite_border_white_48px.svg";
 			 } else {
-				 $scope.iconFavorite = "app/img/icons/ic_favorite_white_48px.svg";
+				 $scope.iconFavorite = "app/assets/img/icons/ic_favorite_white_48px.svg";
 			 }
 			 
 		  } 
