@@ -66,21 +66,20 @@ public abstract class AResources<Entity> {
 		return ent;
 	}
 	
-	public Boolean delete(Long id) throws Exception {
+	public Entity delete(Long id) throws Exception {
 		try {
 			this.getEm().getTransaction().begin();
 			Entity ent = this.getEm().find(this.newClass(), id);
 			this.getEm().remove(ent);
 			this.getEm().getTransaction().commit();
+			return ent;
 		} catch (Exception e) {
 			this.getEm().getTransaction().rollback();
 			throw e;
 		} finally {
 			this.close();
 		}
-		return true;
 	}
-	
 
 	public FormPesquisa<Entity> get(Integer pagina, Integer quantidade) throws Exception {
 		

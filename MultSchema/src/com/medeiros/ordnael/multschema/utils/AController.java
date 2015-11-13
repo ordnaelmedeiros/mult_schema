@@ -45,7 +45,7 @@ public abstract class AController<Entity, Resources extends AResources<Entity>> 
 	
 	@DELETE
 	@Path("{id}")
-	public Boolean delete(@PathParam("id") Long id) throws Exception {
+	public Entity delete(@PathParam("id") Long id) throws Exception {
 		return this.getRes().delete(id);
 	}
 	

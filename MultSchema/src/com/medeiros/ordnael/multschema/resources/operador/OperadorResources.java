@@ -11,8 +11,8 @@ public class OperadorResources extends AResources<Operador> {
 	}
 	
 	@Override
-	public Boolean delete(Long id) throws Exception {
-		return false;
+	public Operador delete(Long id) throws Exception {
+		return null;
 	}
 
 }
