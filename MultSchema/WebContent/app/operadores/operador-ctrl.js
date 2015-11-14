@@ -5,14 +5,13 @@
 	angular
 		.module("app.controllers",[])
 		.controller("OperadorCtrl", OperadorCtrl);
-
+	
 	function OperadorCtrl(DataServiceRest){
 		var self = this;
-		
-		DataServiceRest.get().success(
+		//Chama a service genérica que retorna uma lista do objeto passado por parâmetro
+		DataServiceRest.getList("propriedade").success(
 			function(resposta) {
 				self.propriedades = resposta;
-				console.log(" "+self.propriedades);
 			}
 		).error(function (error){
 			self.status = 'Erro ao carregar informações: '+error.message;
