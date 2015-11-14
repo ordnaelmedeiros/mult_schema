@@ -5,10 +5,11 @@
 		.module('app.services',[])
 		.factory('DataServiceRest', DataService);
 
-		function DataService($http){
+		function DataService($http, ambiente){
 			return {
 				get: function(){
-					return $http.get('http://localhost:8080/MultSchema/rest/propriedade');
+					console.log(""+ambiente.url);
+					return $http.get(ambiente.url+'/rest/propriedade');
 				}
 			}
 		}

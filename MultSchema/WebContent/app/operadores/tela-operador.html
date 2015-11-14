@@ -1,9 +1,6 @@
 <div class="col-md-12">
 <div class="row">
-	<h2 class="text-center"><u>Lembretes</u></h2>
-</div>
-<div class="row">
-<a href="#/" class="btn btn-primary">Cadastrar</a>
+	<h2 class="text-center"><u>Propriedades</u></h2>
 </div>
 <br/>
 <div class="row">
@@ -11,12 +8,14 @@
 	<thead>
 		<tr>
 			<td>Descricao</td>
+			<td>Nome</td>
 			<td>Valor</td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in vm.propriedades">
 		<td>{{item.descricao}}</td>
+		<td>{{item.nome}}</td>
 		<td>{{item.valor}}</td>
 		</tr>
 	</tbody>

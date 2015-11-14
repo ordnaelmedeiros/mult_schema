@@ -10,8 +10,8 @@
 			'app.services',
 			'app.controllers'
 		])
-		.constant("urlbase", {
-			url: "http://localhost:8080"
+		.constant("ambiente", {
+			url: "http://localhost:8080/MultSchema"
 		})
 		.controller('AppCtrl', ['$scope', '$mdSidenav', 
 		function($scope, $mdSidenav, $rootScope, $location){
