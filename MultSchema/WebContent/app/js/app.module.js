@@ -6,8 +6,13 @@
 		/*Angular Modules*/                    
 			'ngMaterial',
 			'ngMessages',
-			'ngRoute'
+			'ngRoute',
+			'app.services',
+			'app.controllers'
 		])
+		.constant("urlbase", {
+			url: "http://localhost:8080"
+		})
 		.controller('AppCtrl', ['$scope', '$mdSidenav', 
 		function($scope, $mdSidenav, $rootScope, $location){
 			$scope.toggleSidenav = function(menuId) {

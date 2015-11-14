@@ -13,12 +13,12 @@ function RouteProvider($routeProvider)
   .when('/', {
     templateUrl: 'app/views/tela-home.html',
   })
-  .when('/login', {
-    controller: 'LoginController',
-    templateUrl: 'views/login.html',
-    controllerAs: 'vm'
+  .when('/propriedades', {
+    controller: 'OperadorCtrl',
+    templateUrl: 'app/operadores/tela-operador.html'
   })
   .otherwise('/');
+  
 };
 
 })();

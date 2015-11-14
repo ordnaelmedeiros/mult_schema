@@ -1,0 +1,26 @@
+<div class="col-md-12">
+<div class="row">
+	<h2 class="text-center"><u>Lembretes</u></h2>
+</div>
+<div class="row">
+<a href="#/" class="btn btn-primary">Cadastrar</a>
+</div>
+<br/>
+<div class="row">
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<td>Descricao</td>
+			<td>Valor</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in operadores">
+		<td>{{item.id}}</td>
+		<td>{{item.titulo}}</td>
+		</tr>
+	</tbody>
+</table>
+	
+</div>
+</div>
