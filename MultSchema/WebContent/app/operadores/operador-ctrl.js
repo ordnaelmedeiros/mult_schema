@@ -8,7 +8,16 @@
 
 	function OperadorCtrl(DataServiceRest){
 		var self = this;
-		console.log('teste'+DataServiceRest.get());
+		
+		DataServiceRest.get().success(
+			function(resposta) {
+				self.propriedades = resposta;
+				console.log(" "+self.propriedades);
+			}
+		).error(function (error){
+			self.status = 'Erro ao carregar informações: '+error.message;
+			console.log(" "+self.status);
+		});
 		
 	}
 

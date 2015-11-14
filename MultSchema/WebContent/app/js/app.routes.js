@@ -15,7 +15,8 @@ function RouteProvider($routeProvider)
   })
   .when('/propriedades', {
     controller: 'OperadorCtrl',
-    templateUrl: 'app/operadores/tela-operador.html'
+    templateUrl: 'app/operadores/tela-operador.html',
+    controllerAs: 'vm'
   })
   .otherwise('/');
   
