@@ -5,8 +5,10 @@
 		.module('app', [
 		/*Angular Modules*/                    
 			'ngMaterial',
+			'ngMenuSidenav',
 			'ngMessages',
 			'ngRoute',
+			'ngAria',
 			'app.services',
 			'app.controllers'
 		])

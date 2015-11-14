@@ -15,6 +15,7 @@
 	<link href="app/assets/css/angular-csp.css" rel="stylesheet" type="text/css"/>
 	<link href="app/assets/css/angular-material.min.css" rel="stylesheet" type="text/css"/>
 	<link href="app/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="app/shared/sidebar/material-menu-sidenav.min.css"></script>
 </head>
 
 <body layout="column" ng-controller="AppCtrl">
@@ -48,7 +49,7 @@
         </md-button>
 		
 		<span flex></span>
-		<div class="espaco">Leandro Medeiros</div>
+		<div class="espaco">Usuário Teste</div>
 		<md-button class="dark-primary-color md-fab md-mini">
             <md-icon md-svg-icon="app/assets/img/icons/ic_person_white_48px.svg"></md-icon>
         </md-button>
@@ -62,36 +63,91 @@
 		<div class="espaco"><font size="2" >99999 - Local de Armazenamento Selecionado</font></div>
 		<img class="espaco" src="app/assets/img/icons/ic_layers_white_24px.svg">
 	</md_content>
-	
+
 	<div layout="row" flex>
 	
-		<md-sidenav id="menuEsquerda" layout="column" class="menuLeft-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-			<md-list>
-				<md-divider hide-gt-sm></md-divider>
-				<md-item>
-					<md-list-item>
-						<img src="app/assets/img/icons/ic_phone_in_talk_black_48px.svg" >
-						<h2 class="espaco">Ouvidoria</h2>
-					</md-list-item>
-				</md-item>
-				<md-divider></md-divider>
-				<md-item>
-					
-					<md-list-item>
-						<md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
-      						HOME
-      					</md-button>
-					</md-list-item>
-					
-					<md-list-item>
-						<md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
-      						HOME 2
-      					</md-button>
-					</md-list-item>
-				
-				</md-item>				
-			</md-list>
-		</md-sidenav>
+	<md-sidenav id="menuEsquerda" layout="column" 
+			    class="md-sidenav-left md-whiteframe-z2"
+			     md-is-locked-open="$mdMedia('gt-sm')"
+                md-component-id="left">
+
+    	<div layout="row" layout-padding>
+    	<md-menu-sidenav-item layout="row">
+        	<md-icon flex="15" md-svg-src="app/assets/img/icons/ic_phone_in_talk_black_48px.svg"></md-icon>
+            <h3>Módulo Teste</h3>
+       </md-menu-sidenav-item>
+        </div>
+
+        <md-divider></md-divider>
+	
+		<md-menu-sidenav>
+        	<md-menu-sidenav-item>
+             	<md-menu-sidenav-title>
+                	<md-toogle-menu layout="row" flex>
+                    	<md-icon flex="15" md-svg-src="app/assets/img/icons/ic_settings_black_24px.svg"></md-icon>
+                     	<h1 class="md-body-2" flex>Configurações</h1>
+                 	</md-toogle-menu>
+		            <md-icon flex="15" md-svg-src="app/assets/img/icons/ic_navigate_next_black_24px.svg"></md-icon>
+		     	</md-menu-sidenav-title>
+                <md-menu-sidenav-content>
+                	<md-menu-sidenav-subitem>Propriedades</md-menu-sidenav-subitem>
+                    <md-menu-sidenav-subitem>Item 2</md-menu-sidenav-subitem>
+                    <md-menu-sidenav-subitem>Item 3</md-menu-sidenav-subitem>
+                </md-menu-sidenav-content>
+         	</md-menu-sidenav-item>
+		
+		    <md-divider></md-divider>
+		
+            <md-menu-sidenav-item>
+            	<md-menu-sidenav-title>
+                	<md-toogle-menu layout="row" flex>
+                    	<md-icon flex="15" md-svg-src="app/assets/img/icons/ic_perm_identity_black_24px.svg">face</md-icon>
+                        <h1 class="md-body-2" flex>Usuários</h1>
+                        <md-icon flex="15" md-svg-src="app/assets/img/icons/ic_navigate_next_black_24px.svg"></md-icon>
+                     </md-toogle-menu>
+                 </md-menu-sidenav-title>
+                 <md-menu-sidenav-content>
+                     <md-menu-sidenav-subitem>Item 1</md-menu-sidenav-subitem>
+                     <md-menu-sidenav-subitem>Item 2</md-menu-sidenav-subitem>
+                     <md-menu-sidenav-subitem>Item 3</md-menu-sidenav-subitem>
+                     <md-menu-sidenav-subitem>Item 4</md-menu-sidenav-subitem>
+                 </md-menu-sidenav-content>
+		      </md-menu-sidenav-item>
+		</md-menu-sidenav>
+	</md-sidenav>
+			
+	<!-- md-sidenav id="menuEsquerda" layout="column"
+	 class="menuLeft-sidenav md-sidenav-left md-whiteframe-z2" 
+	 md-component-id="left" 
+	 md-is-locked-open="$mdMedia('gt-sm')">
+
+		<md-list>
+                <md-divider hide-gt-sm></md-divider>
+                <md-item>
+                    <md-list-item>
+                        <img src="app/assets/img/icons/ic_phone_in_talk_black_48px.svg" >
+                        <h2 class="espaco">Ouvidoria</h2>
+                    </md-list-item>
+                </md-item>
+                <md-divider></md-divider>
+                <md-item>
+                    
+                    <md-list-item>
+                        <md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
+                            HOME
+                        </md-button>
+                    </md-list-item>
+                    
+                    <md-list-item>
+                        <md-button role="link"  md-ink-ripple layout="row" class="md-button-toggle md-button md-default-theme" tabIndex="0" ng-href="#">
+                            HOME 2
+                        </md-button>
+                    </md-list-item>
+                
+                </md-item>              
+            </md-list>
+	</md-sidenav -->
+		
 		
 		<md-content id="viewPrincial" layout="column" flex class="md-padding">
 			<div ng-view></div>
@@ -124,5 +180,10 @@
 <script type="text/javascript" src="app/js/services/app.services.js"></script>
 <script type="text/javascript" src="app/js/services/data.service.js"></script>
 <script type="text/javascript" src="app/operadores/operador-ctrl.js"></script>
+
+<script type="text/javascript" src="app/shared/sidebar/material-menu-sidenav.min.js"></script>
+
+
+
 
 </html>
