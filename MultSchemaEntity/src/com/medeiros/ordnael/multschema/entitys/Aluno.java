@@ -24,7 +24,7 @@ public class Aluno {
 	@Column(length=50)
 	private String nome;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="enderecoId")
 	private Endereco endereco;
 	

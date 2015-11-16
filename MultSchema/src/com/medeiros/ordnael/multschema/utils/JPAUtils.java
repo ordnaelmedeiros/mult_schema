@@ -1,35 +1,24 @@
 package com.medeiros.ordnael.multschema.utils;
 
-import java.util.Properties;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.medeiros.ordnael.multschema.resources.propriedades.PropriedadeResourses;
+
 public class JPAUtils {
 
-	//private static SessionFactory sessionFactory;
+	private static EntityManagerFactory entityManagerFactory = null;
 	
 	static {
-		
-		Properties properties=new Properties();
-		
-		properties.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
-		properties.setProperty("hibernate.connection.username", "postgres");
-		properties.setProperty("hibernate.connection.password", "ids0207");
-		properties.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/mult_schema");
-		
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.format_sql", "true");
-		properties.setProperty("hibernate.default_schema", "public");
-		
-		entityManagerFactory = Persistence.createEntityManagerFactory("principal",properties);
-	    
+		try {
+			entityManagerFactory = Persistence.createEntityManagerFactory("principal",PropriedadeResourses.getPropriedades());
+		} catch (Exception e) {}
 	}
 	
-	private static EntityManagerFactory entityManagerFactory;
+	public static void refreshEntityManagerFactory() {
+		entityManagerFactory = Persistence.createEntityManagerFactory("principal",PropriedadeResourses.getPropriedades());
+	}
 	
 	public static EntityManager createEntityManager() {
 		return entityManagerFactory.createEntityManager();

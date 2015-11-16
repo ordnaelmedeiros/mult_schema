@@ -9,15 +9,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.medeiros.ordnael.multschema.utils.JPAUtils;
+
 public class PropriedadeResourses {
 
 	private static List<Propriedade> list;
 	private static File file;
 	private static Properties properties;
 	
+	public static Properties getPropriedades() {
+		return properties;
+	}
+	
 	static {
 		
 		list = new ArrayList<>();
+		
+		/*
+		properties.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
+		properties.setProperty("hibernate.connection.username", "postgres");
+		properties.setProperty("hibernate.connection.password", "ids0207");
+		properties.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/mult_schema");
+		
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+		properties.setProperty("hibernate.hbm2ddl.auto", "update");
+		properties.setProperty("hibernate.show_sql", "true");
+		properties.setProperty("hibernate.format_sql", "true");
+		properties.setProperty("hibernate.default_schema", "public");
+		
 		
 		list.add(new Propriedade("database_tipe", "Tipo deo Banco", "PostgresSQL"));
 		
@@ -29,6 +48,19 @@ public class PropriedadeResourses {
 		list.add(new Propriedade("porta", "Porta do Servidor do Banco", "5432"));
 		list.add(new Propriedade("username", "Usuário do Banco", "postgres"));
 		list.add(new Propriedade("password", "Senha do Usuário do Banco", "ids0207"));
+		
+		*/
+		
+		list.add(new Propriedade("hibernate.connection.driver_class", "Classe do Driver", "org.postgresql.Driver"));
+		list.add(new Propriedade("hibernate.connection.username", "Usuário de Banco", "postgres"));
+		list.add(new Propriedade("hibernate.connection.password", "Senha do Usuário de Banco", "ids0207"));
+		list.add(new Propriedade("hibernate.connection.url", "URL de Conexão", "jdbc:postgresql://localhost:5432/mult_schema"));
+		
+		list.add(new Propriedade("hibernate.dialect", "Classe de Dialeto", "org.hibernate.dialect.PostgreSQLDialect"));
+		list.add(new Propriedade("hibernate.hbm2ddl.auto", "Criação do Banco", "update"));
+		list.add(new Propriedade("hibernate.show_sql", "Mostrar SQL no LOG", "true"));
+		list.add(new Propriedade("hibernate.format_sql", "Formatar SQL no LOG", "true"));
+		list.add(new Propriedade("hibernate.default_schema", "Schema do Banco", "public"));
 		
 		file = new File("MultSchema.properties");
 		properties = new Properties();
@@ -101,6 +133,9 @@ public class PropriedadeResourses {
 		lista.add(prop);
 		
 		this.gravarPropriedades(lista);
+		
+		JPAUtils.refreshEntityManagerFactory();
+		
 		return true;
 		
 	}

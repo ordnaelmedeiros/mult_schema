@@ -12,7 +12,7 @@ public class AlunoResources {
 	
 	public List<Aluno> get() {
 		EntityManager em = JPAUtils.createEntityManager();
-		List<Aluno> list = em.createQuery("select alu from Aluno alu join fetch alu.endereco ", Aluno.class).getResultList();
+		List<Aluno> list = em.createQuery("select alu from Aluno alu left join fetch alu.endereco ", Aluno.class).getResultList();
 		em.close();
 		return list;
 	}
@@ -20,6 +20,7 @@ public class AlunoResources {
 	public Aluno get(Long id) {
 		EntityManager em = JPAUtils.createEntityManager();
 		Aluno alu = em.find(Aluno.class, id);
+		alu.getEndereco();
 		em.close();
 		return alu;
 	}
@@ -51,5 +52,20 @@ public class AlunoResources {
 		em.close();
 		return alu;
 	}
-	
+//	public static <T> T findEager(EntityManager em, Class<T> type, Object id) {
+//	    T entity = em.find(type, id);
+//	    for (Field field: type.getDeclaredFields()) {
+//	        OneToMany annotation = field.getAnnotation(OneToMany.class);
+//	        if (annotation != null) {
+//	            if (annotation.fetch().equals(FetchType.LAZY)) {
+//	                try {
+//	                    new PropertyDescriptor(field.getName(), type).getReadMethod().invoke(entity);
+//	                } catch (Exception e) {
+//	                    e.printStackTrace();
+//	                }
+//	            }
+//	        }
+//	    }
+//	    return entity;
+//	}
 }
