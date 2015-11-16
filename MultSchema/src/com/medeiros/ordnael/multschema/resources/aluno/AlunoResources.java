@@ -18,10 +18,18 @@ public class AlunoResources {
 	}
 	
 	public Aluno get(Long id) {
-		EntityManager em = JPAUtils.createEntityManager();
-		Aluno alu = em.find(Aluno.class, id);
-		alu.getEndereco();
-		em.close();
+		
+		Aluno alu = null;
+		
+		try {
+			EntityManager em = JPAUtils.createEntityManager();
+			alu = em.find(Aluno.class, id);
+			alu.getEndereco();
+			em.close();
+		} catch (Exception e) {
+			throw e;
+		}
+		
 		return alu;
 	}
 
