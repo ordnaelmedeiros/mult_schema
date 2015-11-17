@@ -10,8 +10,8 @@
 			var self = this;
 			
 			self.salvarItem = function(){
-				console.log(JSON.stringify(self.propriedades));	
-				DataServiceRest.updateItem("propriedade", JSON.stringify(self.propriedades));
+				console.log(angular.toJson(self.propriedades));	
+				DataServiceRest.updateItem("propriedade", angular.toJson(self.propriedades));
 			}
 			
 			
