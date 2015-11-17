@@ -18,6 +18,9 @@
 				//Retorna um objeto específico
 				getId: function(obj,id){
 					return $http.get(ambiente.url+'/rest/'+obj+'/'+id);
+				},
+				updateItem: function(obj, data){
+					return $http.post(ambiente.url+'/rest/'+obj, data);
 				}
 			}
 		}
