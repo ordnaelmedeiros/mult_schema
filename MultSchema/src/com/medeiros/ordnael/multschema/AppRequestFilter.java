@@ -14,7 +14,7 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 		//requestContext.getMethod()
 		//requestContext.getUriInfo().getPath()
 		//requestContext.getUriInfo().get
-		System.out.println("AppInterceptor");
+		System.out.println("-> AppRequestFilter");
 		
 	}
 

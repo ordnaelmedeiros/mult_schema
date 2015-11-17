@@ -14,7 +14,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.hibernate.collection.internal.PersistentBag;
 
 import com.medeiros.ordnael.multschema.json.EntitySerializer;
 

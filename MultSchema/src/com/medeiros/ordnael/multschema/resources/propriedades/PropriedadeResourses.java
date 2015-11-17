@@ -103,6 +103,7 @@ public class PropriedadeResourses {
 	
 	public Boolean post(List<Propriedade> lista) throws Exception {
 		this.gravarPropriedades(lista);
+		JPAUtils.refreshEntityManagerFactory();
 		return true;
 	}
 	
