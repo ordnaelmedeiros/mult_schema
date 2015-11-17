@@ -14,6 +14,7 @@ public class App extends Application {
 	
 	@PostConstruct
 	private void startup() {
+		
 	}
 	
 }

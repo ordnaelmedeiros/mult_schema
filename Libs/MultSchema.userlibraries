@@ -12,6 +12,8 @@
         <archive path="D:/GitHub/mult_schema/Libs/Hibernate/hibernate-entitymanager-4.1.9.Final.jar"/>
         <archive path="D:/GitHub/mult_schema/Libs/Hibernate/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
         <archive path="D:/GitHub/mult_schema/Libs/Hibernate/javassist-3.17.1-GA.jar"/>
+        <archive path="D:/GitHub/mult_schema/Libs/Hibernate/hibernate-c3p0-4.1.8.final.jar"/>
+        <archive path="D:/GitHub/mult_schema/Libs/Hibernate/c3p0-0.9.1.2.jar"/>
     </library>
     <library name="HttpClient" systemlibrary="false">
         <archive path="D:/GitHub/mult_schema/Libs/HttpClient/commons-codec-1.9.jar"/>
@@ -24,6 +26,12 @@
         <archive path="D:/GitHub/mult_schema/Libs/HttpClient/httpmime-4.5.1.jar"/>
         <archive path="D:/GitHub/mult_schema/Libs/HttpClient/jna-4.1.0.jar"/>
         <archive path="D:/GitHub/mult_schema/Libs/HttpClient/jna-platform-4.1.0.jar"/>
+    </library>
+    <library name="Jackson" systemlibrary="false">
+        <archive path="D:/GitHub/mult_schema/Libs/Jackson/jackson-core-asl-1.9.13.jar"/>
+        <archive path="D:/GitHub/mult_schema/Libs/Jackson/jackson-jaxrs-1.9.13.jar"/>
+        <archive path="D:/GitHub/mult_schema/Libs/Jackson/jackson-mapper-asl-1.9.13.jar" source="C:/Users/lrmar_000/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar"/>
+        <archive path="D:/GitHub/mult_schema/Libs/Jackson/jackson-xc-1.9.13.jar"/>
     </library>
     <library name="PostgreSQL" systemlibrary="false">
         <archive path="D:/GitHub/mult_schema/Libs/PostgreSQL/postgresql-9.2-1002.jdbc4.jar"/>

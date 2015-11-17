@@ -20,7 +20,7 @@
 			<property name="hibernate.c3p0.max_statements" value="15" />
 			<property name="hibernate.c3p0.min_size" value="5" />
 			<property name="hibernate.c3p0.timeout" value="100" /> 
-			<property name="hibernate.enable_lazy_load_no_trans" value="true" />
+			<!-- property name="hibernate.enable_lazy_load_no_trans" value="true" / -->
 		</properties>
 		
 	</persistence-unit>

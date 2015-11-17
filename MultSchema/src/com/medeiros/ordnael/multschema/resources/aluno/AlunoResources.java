@@ -4,11 +4,23 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.hibernate.FetchMode;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
 import com.medeiros.ordnael.multschema.entitys.Aluno;
 import com.medeiros.ordnael.multschema.utils.JPAUtils;
 
 public class AlunoResources {
 
+	private Session session;
+	
+	public Session getSession() {
+		if (session==null) {
+			session = JPAUtils.createEntityManager().unwrap(org.hibernate.Session.class);
+		}
+		return session;
+	}
 	
 	public List<Aluno> get() {
 		EntityManager em = JPAUtils.createEntityManager();
@@ -19,23 +31,29 @@ public class AlunoResources {
 	
 	public Aluno get(Long id) {
 		
-		Aluno alu = null;
-		
 		try {
-			EntityManager em = JPAUtils.createEntityManager();
-			alu = em.find(Aluno.class, id);
-			alu.getEndereco();
-			em.close();
+			Aluno alu = (Aluno)this.getSession().createCriteria(Aluno.class)
+					.setFetchMode("endereco", FetchMode.JOIN)
+					.add(Restrictions.idEq(id))
+					.uniqueResult();
+			
+			this.getSession().close();
+			return alu;
 		} catch (Exception e) {
+			this.getSession().close();
 			throw e;
 		}
 		
-		return alu;
 	}
 
 	public Aluno post(Aluno alu) {
 		EntityManager em = JPAUtils.createEntityManager();
 		em.getTransaction().begin();
+		if (alu.getEndereco().getEnderecoId()==null) {
+			em.persist(alu.getEndereco());
+		} else {
+			em.merge(alu.getEndereco());
+		}
 		em.persist(alu);
 		em.getTransaction().commit();
 		em.close();
@@ -45,6 +63,11 @@ public class AlunoResources {
 	public Aluno put(Aluno alu) {
 		EntityManager em = JPAUtils.createEntityManager();
 		em.getTransaction().begin();
+		if (alu.getEndereco().getEnderecoId()==null) {
+			em.persist(alu.getEndereco());
+		} else {
+			em.merge(alu.getEndereco());
+		}
 		em.merge(alu);
 		em.getTransaction().commit();
 		em.close();

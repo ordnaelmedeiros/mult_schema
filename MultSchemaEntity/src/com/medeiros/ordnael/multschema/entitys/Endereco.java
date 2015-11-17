@@ -1,5 +1,6 @@
 package com.medeiros.ordnael.multschema.entitys;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -8,15 +9,21 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.hibernate.collection.internal.PersistentBag;
+
+import com.medeiros.ordnael.multschema.json.EntitySerializer;
+
 @Entity
 @Table(schema="public")
 @SequenceGenerator(name = "SEQ_ENDERECO", sequenceName = "SEQ_ENDERECO", initialValue = 1)
-public class Endereco {
+public class Endereco implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_ENDERECO")
@@ -35,6 +42,7 @@ public class Endereco {
 	private String numero;
 
 	@OneToMany(fetch=FetchType.LAZY)
+	@JsonSerialize(using=EntitySerializer.class)
 	private	List<Aluno> alunos;
 	
 	public Long getEnderecoId() {
