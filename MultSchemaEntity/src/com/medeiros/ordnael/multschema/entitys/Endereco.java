@@ -40,7 +40,7 @@ public class Endereco implements Serializable {
 	@Column(length=10)
 	private String numero;
 
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="endereco")
 	@JsonSerialize(using=EntitySerializer.class)
 	private	List<Aluno> alunos;
 	
