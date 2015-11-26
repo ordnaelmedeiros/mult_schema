@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.aluno.resources;
+package com.medeiros.ordnael.multschema.resources.aluno.resources;
 
 import javax.persistence.EntityManager;
 

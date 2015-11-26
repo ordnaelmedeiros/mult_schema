@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.aluno.controllers;
+package com.medeiros.ordnael.multschema.resources.aluno.controllers;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import com.medeiros.ordnael.multschema.aluno.resources.AlunoResListar;
 import com.medeiros.ordnael.multschema.entitys.Aluno;
+import com.medeiros.ordnael.multschema.resources.aluno.resources.AlunoResListar;
 
 @Path("aluno")
 @Consumes(MediaType.APPLICATION_JSON)

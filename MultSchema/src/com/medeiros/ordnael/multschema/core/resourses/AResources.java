@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.utils;
+package com.medeiros.ordnael.multschema.core.resourses;
 
 import java.util.List;
 
@@ -7,6 +7,9 @@ import javax.persistence.EntityManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
+
+import com.medeiros.ordnael.multschema.utils.FormPesquisa;
+import com.medeiros.ordnael.multschema.utils.JPAUtils;
 
 public abstract class AResources<Entity> {
 	

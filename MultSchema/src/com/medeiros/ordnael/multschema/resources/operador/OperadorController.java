@@ -1,10 +1,9 @@
-package com.medeiros.ordnael.multschema.controllers;
+package com.medeiros.ordnael.multschema.resources.operador;
 
 import javax.ws.rs.Path;
 
+import com.medeiros.ordnael.multschema.core.controller.AController;
 import com.medeiros.ordnael.multschema.entitys.Operador;
-import com.medeiros.ordnael.multschema.resources.operador.OperadorResources;
-import com.medeiros.ordnael.multschema.utils.AController;
 
 @Path("operador")
 public class OperadorController extends AController<Operador, OperadorResources>{

@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.aluno.resources;
+package com.medeiros.ordnael.multschema.resources.aluno.resources;
 
 import java.util.List;
 
@@ -30,6 +30,7 @@ public class AlunoResListar {
 			setFetchMode.setFetchMode(tabela, FetchMode.JOIN);
 		}
 		setFetchMode.add(Restrictions.idEq(2l));
+		@SuppressWarnings("unchecked")
 		List<Aluno> list = (List<Aluno>)setFetchMode.list();
 		this.getSession().close();
 		return list;

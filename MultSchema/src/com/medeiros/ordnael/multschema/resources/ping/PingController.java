@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.controllers;
+package com.medeiros.ordnael.multschema.resources.ping;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

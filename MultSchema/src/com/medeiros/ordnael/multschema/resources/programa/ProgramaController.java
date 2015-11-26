@@ -1,10 +1,9 @@
-package com.medeiros.ordnael.multschema.controllers;
+package com.medeiros.ordnael.multschema.resources.programa;
 
 import javax.ws.rs.Path;
 
+import com.medeiros.ordnael.multschema.core.controller.AController;
 import com.medeiros.ordnael.multschema.entitys.Programa;
-import com.medeiros.ordnael.multschema.resources.programa.ProgramaResources;
-import com.medeiros.ordnael.multschema.utils.AController;
 
 @Path("programa")
 public class ProgramaController extends AController<Programa, ProgramaResources> {

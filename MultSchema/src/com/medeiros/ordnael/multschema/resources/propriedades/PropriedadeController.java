@@ -1,4 +1,4 @@
-package com.medeiros.ordnael.multschema.controllers;
+package com.medeiros.ordnael.multschema.resources.propriedades;
 
 import java.util.List;
 
@@ -8,9 +8,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import com.medeiros.ordnael.multschema.resources.propriedades.Propriedade;
-import com.medeiros.ordnael.multschema.resources.propriedades.PropriedadeResourses;
 
 @Path("propriedade")
 @Consumes(MediaType.APPLICATION_JSON)
