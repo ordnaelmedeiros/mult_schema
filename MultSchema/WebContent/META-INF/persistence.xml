@@ -10,7 +10,7 @@
 		<class>com.medeiros.ordnael.multschema.entitys.Endereco</class>
 		<class>com.medeiros.ordnael.multschema.entitys.Operador</class>
 		<class>com.medeiros.ordnael.multschema.entitys.Programa</class>
-		<class>com.medeiros.ordnael.multschema.entitys.OperadorPrograma</class>
+		<class>com.medeiros.ordnael.multschema.entitys.Privilegio</class>
 		
 		<properties>
 			<property name="connection.provider_class"  value="org.hibernate.connection.C3P0ConnectionProvider"/>
