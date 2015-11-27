@@ -11,6 +11,7 @@
 		<class>com.medeiros.ordnael.multschema.entitys.Operador</class>
 		<class>com.medeiros.ordnael.multschema.entitys.Programa</class>
 		<class>com.medeiros.ordnael.multschema.entitys.Privilegio</class>
+		<class>com.medeiros.ordnael.multschema.entitys.Logado</class>
 		
 		<properties>
 			<property name="connection.provider_class"  value="org.hibernate.connection.C3P0ConnectionProvider"/>

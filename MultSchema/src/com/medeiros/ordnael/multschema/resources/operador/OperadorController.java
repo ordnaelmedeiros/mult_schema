@@ -8,16 +8,6 @@ import com.medeiros.ordnael.multschema.entitys.Operador;
 @Path("operador")
 public class OperadorController extends AController<Operador, OperadorResources>{
 
-	public OperadorController() throws Exception {
-		Operador opeAdmin = this.getRes().get(1l);
-		if (opeAdmin==null) {
-			opeAdmin = new Operador();
-			opeAdmin.setNomeAcesso("admin");
-			opeAdmin.setSenha("admin");
-			this.getRes().post(opeAdmin);
-		}
-	}
-	
 	@Override
 	public Operador get(Long id) throws Exception {
 		/*
@@ -29,7 +19,7 @@ public class OperadorController extends AController<Operador, OperadorResources>
 	}
 	
 	@Override
-	public OperadorResources newResource() {
+	public OperadorResources newResource() throws Exception {
 		return new OperadorResources();
 	}
 

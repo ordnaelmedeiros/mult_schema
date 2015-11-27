@@ -2,8 +2,6 @@ package com.medeiros.ordnael.multschema.resources.aluno.resources;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Session;

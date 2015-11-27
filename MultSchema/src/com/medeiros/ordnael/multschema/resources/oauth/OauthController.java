@@ -1,11 +1,11 @@
 package com.medeiros.ordnael.multschema.resources.oauth;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.medeiros.ordnael.multschema.entitys.Operador;
+import com.medeiros.ordnael.multschema.entitys.Logado;
 
 
 @Path("oauth")
@@ -21,9 +21,10 @@ public class OauthController {
 		this.res = res;
 	}
 	
-	@GET
-	public Operador get() {
-		return this.getRes().get();
+	@POST
+	@Path("login")
+	public Logado login(String loginBase64) throws Exception {
+		return this.getRes().login(loginBase64);
 	}
 	
 }

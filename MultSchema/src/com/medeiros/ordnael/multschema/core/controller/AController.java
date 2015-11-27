@@ -17,10 +17,10 @@ import com.medeiros.ordnael.multschema.utils.FormPesquisa;
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class AController<Entity, Resources extends AResources<Entity>> {
 
-	abstract public Resources newResource();
+	abstract public Resources newResource() throws Exception;
 	
 	private Resources res = null;
-	public Resources getRes() {
+	public Resources getRes() throws Exception {
 		if (this.res==null) {
 			this.res = this.newResource();
 		}

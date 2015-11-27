@@ -5,9 +5,7 @@ import java.util.List;
 import org.hibernate.criterion.Restrictions;
 
 import com.medeiros.ordnael.multschema.core.resourses.AResources;
-import com.medeiros.ordnael.multschema.entitys.Operador;
 import com.medeiros.ordnael.multschema.entitys.Privilegio;
-import com.medeiros.ordnael.multschema.utils.FormPesquisa;
 
 public class PrivilegioResources extends AResources<Privilegio> {
 
