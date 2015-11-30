@@ -42,7 +42,7 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		//System.out.println("-> "+requestContext.getMethod());
-		
+		/*
 		String authorization = requestContext.getHeaderString("Authorization");
 		String token = requestContext.getHeaderString("Token");
 		String path = requestContext.getUriInfo().getPath();
@@ -93,7 +93,7 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 		} catch (Exception e) {
 			throw new IOException(e.getMessage());
 		}
-		
+		*/
 	}
 
 }
