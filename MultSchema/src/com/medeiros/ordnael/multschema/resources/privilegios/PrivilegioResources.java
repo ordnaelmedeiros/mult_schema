@@ -6,6 +6,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.medeiros.ordnael.multschema.core.resourses.AResources;
 import com.medeiros.ordnael.multschema.entitys.Privilegio;
+import com.medeiros.ordnael.multschema.entitys.Programa;
 
 public class PrivilegioResources extends AResources<Privilegio> {
 
@@ -22,6 +23,26 @@ public class PrivilegioResources extends AResources<Privilegio> {
 					.list();
 			this.close();
 			return list;
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+	
+	public Privilegio getByOperadorAndPrograma(Long id, String nomePrograma) throws Exception {
+		try {
+			
+			Programa programa = (Programa)this.createCriteria(Programa.class)
+					.add(Restrictions.eq("controller", nomePrograma))
+					.uniqueResult();
+			
+			Privilegio privilegio = (Privilegio)this.createCriteria(Privilegio.class)
+					.add(Restrictions.eq("operador.operadorId", id))
+					.add(Restrictions.eq("programa", programa))
+					.uniqueResult();
+			
+			this.close();
+			return privilegio;
 		} catch (Exception e) {
 			throw e;
 		}

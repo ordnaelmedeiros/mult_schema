@@ -13,7 +13,9 @@ import org.hibernate.criterion.Restrictions;
 
 import com.medeiros.ordnael.multschema.entitys.Logado;
 import com.medeiros.ordnael.multschema.entitys.Operador;
+import com.medeiros.ordnael.multschema.entitys.Privilegio;
 import com.medeiros.ordnael.multschema.resources.operador.OperadorResources;
+import com.medeiros.ordnael.multschema.resources.privilegios.PrivilegioResources;
 import com.medeiros.ordnael.multschema.utils.JPAUtils;
 
 @Provider
@@ -42,10 +44,12 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		//System.out.println("-> "+requestContext.getMethod());
-		/*
+		
 		String authorization = requestContext.getHeaderString("Authorization");
 		String token = requestContext.getHeaderString("Token");
 		String path = requestContext.getUriInfo().getPath();
+		String nomePrograma = path.substring(1, path.indexOf("/", 1));
+		String metodo = requestContext.getMethod();
 		
 		try {
 			
@@ -85,6 +89,30 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 					
 					if (!operador.getOperadorId().equals(1l)) {
 						
+						Privilegio privilegio = new PrivilegioResources().getByOperadorAndPrograma(operador.getOperadorId(), nomePrograma);
+						if (privilegio==null) {
+							throw new IOException("Acesso Negado");
+						} else {
+							if (metodo.toUpperCase().equals("GET")) {
+								if (!privilegio.getGet()) {
+									throw new IOException("Acesso Negado");
+								}
+							} else if (metodo.toUpperCase().equals("POST")) {
+								if (!privilegio.getPost()) {
+									throw new IOException("Acesso Negado");
+								}
+							} else if (metodo.toUpperCase().equals("PUT")) {
+								if (!privilegio.getPut()) {
+									throw new IOException("Acesso Negado");
+								}
+							} else if (metodo.toUpperCase().equals("DELETE")) {
+								if (!privilegio.getDelete()) {
+									throw new IOException("Acesso Negado");
+								}
+							}
+						}
+						//System.out.println("--------> Validar");
+						
 					}
 					
 				}
@@ -93,7 +121,7 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 		} catch (Exception e) {
 			throw new IOException(e.getMessage());
 		}
-		*/
+		
 	}
 
 }
