@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="public")
-@SequenceGenerator(name = "SEQ_OPERADOR", sequenceName = "SEQ_OPERADOR", initialValue = 1)
+@SequenceGenerator(name = "SEQ_OPERADOR", sequenceName = "public.SEQ_OPERADOR", schema="public", initialValue = 1)
 public class Operador {
 
 	@Id

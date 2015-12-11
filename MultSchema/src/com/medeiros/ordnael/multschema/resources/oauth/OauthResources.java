@@ -80,7 +80,8 @@ public class OauthResources {
 	}
 	
 	public static void main(String[] args) {
-		String str = "admin::admin";
+		//String str = "admin::admin";
+		String str = "leandro::123";
 		
 		// encode data on your side using BASE64
 		byte[] bytesEncoded = Base64.getEncoder().encode(str.getBytes());

@@ -44,11 +44,17 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		//System.out.println("-> "+requestContext.getMethod());
-		
+		Integer operadorId = null;
 		String authorization = requestContext.getHeaderString("Authorization");
 		String token = requestContext.getHeaderString("Token");
 		String path = requestContext.getUriInfo().getPath();
-		String nomePrograma = path.substring(1, path.indexOf("/", 1));
+		String nomePrograma = "";
+		if (path.indexOf("/", 1)>-1) {
+			nomePrograma = path.substring(1, path.indexOf("/", 1));
+		} else {
+			nomePrograma = path.substring(1, path.length());
+		}
+		
 		String metodo = requestContext.getMethod();
 		
 		try {
@@ -64,6 +70,7 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 					if (!authorization.equals("YWRtaW46OmFkbWlu")) {
 						throw new IOException("Acesso Negado");
 					}
+					requestContext.getHeaders().add("operadorId", "1");
 				} else {
 					
 					if (authorization==null || token==null) {
@@ -114,8 +121,11 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 						//System.out.println("--------> Validar");
 						
 					}
-					
+					requestContext.setProperty("operadorId", operador);
 				}
+				
+				
+				
 			}
 			
 		} catch (Exception e) {

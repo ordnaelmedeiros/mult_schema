@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
@@ -61,6 +62,16 @@ public class PropriedadeResourses {
 	
 	public static Properties getPropriedades() {
 		return properties;
+	}
+	
+	public static Properties getPropriedades(String schema) {
+		Properties copia = new Properties();
+		for (Enumeration propertyNames = properties.propertyNames();propertyNames.hasMoreElements();) {
+			Object key = propertyNames.nextElement();
+			copia.put(key, properties.get(key));
+		}
+		copia.setProperty("hibernate.default_schema", schema);
+		return copia;
 	}
 	
 	

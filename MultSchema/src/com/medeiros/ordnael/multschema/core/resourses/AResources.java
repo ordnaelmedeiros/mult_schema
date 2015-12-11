@@ -3,11 +3,14 @@ package com.medeiros.ordnael.multschema.core.resourses;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 
+import com.medeiros.ordnael.multschema.entitys.Operador;
 import com.medeiros.ordnael.multschema.utils.FormPesquisa;
 import com.medeiros.ordnael.multschema.utils.JPAUtils;
 
@@ -15,10 +18,19 @@ public abstract class AResources<Entity> {
 	
 	public abstract Class<Entity> newClass();
 	
+	private Operador operador;
+	
+	private HttpServletRequest request;
+    private ServletContext context;
+	
 	private EntityManager em;
 	public EntityManager getEm() {
 		if (this.em==null) {
-			this.em = JPAUtils.createEntityManager();
+			if (this.getOperador()==null || this.getOperador().getEsquema()==null) {
+				this.em = JPAUtils.createEntityManager();
+			} else {
+				this.em = JPAUtils.createEntityManager(this.getOperador().getEsquema().getDescricao());
+			}
 		}
 		return em;
 	}
@@ -124,6 +136,24 @@ public abstract class AResources<Entity> {
 			throw e;
 		}
 		return form;
+	}
+	public HttpServletRequest getRequest() {
+		return request;
+	}
+	public void setRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+	public ServletContext getContext() {
+		return context;
+	}
+	public void setContext(ServletContext context) {
+		this.context = context;
+	}
+	public Operador getOperador() {
+		if (operador==null && this.getRequest()!=null && this.getRequest().getAttribute("operadorId")!=null) {
+			operador = (Operador) this.getRequest().getAttribute("operadorId");
+		}
+		return operador;
 	}
 	
 }

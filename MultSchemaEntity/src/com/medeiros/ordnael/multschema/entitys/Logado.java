@@ -17,7 +17,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(schema="public")
-@SequenceGenerator(name = "SEQ_LOGADO", sequenceName = "SEQ_LOGADO", initialValue = 1)
+@SequenceGenerator(name = "SEQ_LOGADO", sequenceName = "public.SEQ_LOGADO", schema="public", initialValue = 1)
 public class Logado {
 
 	@Id

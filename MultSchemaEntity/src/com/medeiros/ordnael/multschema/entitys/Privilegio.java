@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(schema="public")
-@SequenceGenerator(name = "SEQ_PRIVILEGIO", sequenceName = "SEQ_PRIVILEGIO", initialValue = 1)
+@SequenceGenerator(name = "SEQ_PRIVILEGIO", sequenceName = "public.SEQ_PRIVILEGIO", schema="public", initialValue = 1)
 public class Privilegio implements Serializable {
 
 	private static final long serialVersionUID = 1L;

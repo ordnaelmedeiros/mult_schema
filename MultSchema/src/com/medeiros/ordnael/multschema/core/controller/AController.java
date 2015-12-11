@@ -1,5 +1,7 @@
 package com.medeiros.ordnael.multschema.core.controller;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -8,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import com.medeiros.ordnael.multschema.core.resourses.AResources;
@@ -16,13 +19,21 @@ import com.medeiros.ordnael.multschema.utils.FormPesquisa;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public abstract class AController<Entity, Resources extends AResources<Entity>> {
-
+	
 	abstract public Resources newResource() throws Exception;
+	
+	@Context
+	private HttpServletRequest request;
+    @Context
+    private ServletContext context;
 	
 	private Resources res = null;
 	public Resources getRes() throws Exception {
 		if (this.res==null) {
 			this.res = this.newResource();
+			this.res.setRequest(request);
+			this.res.setContext(context);
+			
 		}
 		return res;
 	}

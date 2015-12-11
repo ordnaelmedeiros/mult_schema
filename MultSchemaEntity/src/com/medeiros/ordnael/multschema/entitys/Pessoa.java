@@ -1,6 +1,6 @@
 package com.medeiros.ordnael.multschema.entitys;
 
-import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,53 +11,47 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.medeiros.ordnael.multschema.json.EntitySerializer;
 
 @Entity
-@Table(schema="public")
-@JsonSerialize
-@SequenceGenerator(name = "SEQ_ALUNO", sequenceName = "SEQ_ALUNO", initialValue = 1)
-
-public class Aluno implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+@SequenceGenerator(name = "SEQ_PESSOA", sequenceName = "SEQ_PESSOA", initialValue = 1)
+public class Pessoa {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_ALUNO")
-	private Long alunoId;
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ_PESSOA")
+	private Long pessoaId;
 	
-	@Column(length=50)
+	@Column(length=100)
 	private String nome;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	private Date nascimento;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="enderecoId")
-	@JsonSerialize(using=EntitySerializer.class)
 	private Endereco endereco;
 	
-	public Long getAlunoId() {
-		return alunoId;
+	public Long getPessoaId() {
+		return pessoaId;
 	}
-
-	public void setAlunoId(Long alunoId) {
-		this.alunoId = alunoId;
+	public void setPessoaId(Long pessoaId) {
+		this.pessoaId = pessoaId;
 	}
 
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	public Date getNascimento() {
+		return nascimento;
+	}
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
 	public Endereco getEndereco() {
 		return endereco;
 	}
-
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}

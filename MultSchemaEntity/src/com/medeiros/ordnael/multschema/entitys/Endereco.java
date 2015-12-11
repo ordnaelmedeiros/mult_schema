@@ -1,25 +1,18 @@
 package com.medeiros.ordnael.multschema.entitys;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-
-import com.medeiros.ordnael.multschema.json.EntitySerializer;
-
 @Entity
 @Table(schema="public")
-@SequenceGenerator(name = "SEQ_ENDERECO", sequenceName = "SEQ_ENDERECO", initialValue = 1)
+@SequenceGenerator(name = "SEQ_ENDERECO", sequenceName = "public.SEQ_ENDERECO", schema="public", initialValue = 1)
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -40,10 +33,6 @@ public class Endereco implements Serializable {
 	@Column(length=10)
 	private String numero;
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="endereco")
-	@JsonSerialize(using=EntitySerializer.class)
-	private	List<Aluno> alunos;
-	
 	public Long getEnderecoId() {
 		return enderecoId;
 	}
@@ -82,14 +71,6 @@ public class Endereco implements Serializable {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
-	}
-
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
-
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
 	}
 	
 }
