@@ -44,7 +44,6 @@ public class AppRequestFilter implements ContainerRequestFilter  {
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		//System.out.println("-> "+requestContext.getMethod());
-		Integer operadorId = null;
 		String authorization = requestContext.getHeaderString("Authorization");
 		String token = requestContext.getHeaderString("Token");
 		String path = requestContext.getUriInfo().getPath();

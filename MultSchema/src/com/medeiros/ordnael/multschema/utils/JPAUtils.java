@@ -1,8 +1,6 @@
 package com.medeiros.ordnael.multschema.utils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
